@@ -1,4 +1,4 @@
-package com.andmicroservice.skeleton.controllers;
+package com.andmicroservice.skeleton.resources;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -18,15 +18,15 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@SpringBootTest(classes = TestController.class)
-public class TestControllerTest {
+@SpringBootTest(classes = TestResource.class)
+public class TestResourceTest {
 
     private MockMvc mockMvc;
 
     @Before public void setUp() {
         MockitoAnnotations.initMocks(this);
-        TestController testController = new TestController();
-        this.mockMvc = MockMvcBuilders.standaloneSetup(testController).build();
+        TestResource testResource = new TestResource();
+        this.mockMvc = MockMvcBuilders.standaloneSetup(testResource).build();
     }
 
     @Test
@@ -35,6 +35,6 @@ public class TestControllerTest {
                 .perform(get("/test").accept(MediaType.TEXT_PLAIN))
                 .andExpect(status().isOk())
                 .andExpect(content()
-                        .string(containsString("RestController is up and running!")));
+                        .string(containsString("TestResource is up and running!")));
     }
 }
