@@ -10,13 +10,13 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class TestController {
 
-  private final Logger logger = LoggerFactory.getLogger(this.getClass());
+    private final Logger logger = LoggerFactory.getLogger(this.getClass());
 
-  @GetMapping("/test")
-  @ResponseBody
-  public String test() {
-    logger.info("RestController is up and running...");
+    @GetMapping("/test")
+    @ResponseBody
+    public String test() {
+        logger.info("RestController is up and running...");
 
-    return "RestController is up and running!";
-  }
+        return "RestController is up and running!";
+    }
 }
